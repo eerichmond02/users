@@ -1,7 +1,7 @@
 // User component
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUserData, selectUser, newUserPage } from "./state/actions";
+import { fetchUserData, selectUser, newUserPage, editUserPage, deleteUser } from "./state/actions";
 
 class Users extends Component {
   componentDidMount() {
@@ -22,15 +22,15 @@ class Users extends Component {
             {this.props.users.map(user => {
               return (
                 <tr key={user.id}>
-                  <td>{user.name}</td>
+                  <td>{user.firstName + ' ' + user.lastName}</td>
                   <td>{user.email}</td>
                   <td>{user.createdAt}</td>
                   <td>
                     <button onClick={() => this.props.selectUser(user)}>
                       show
                     </button>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => {this.props.selectUser(user); this.props.editUserPage()}}>Edit</button>
+                    <button onClick={() => this.props.deleteUser(user.id)}>Delete</button>
                   </td>
                 </tr>
               );
@@ -58,8 +58,14 @@ const mapDispatchToProps = dispatch => {
 	},
 	newUserPage: () => {
 		dispatch(newUserPage());
+  },
+  editUserPage: () => {
+		dispatch(editUserPage());
+  },
+  deleteUser: (id) => {
+		dispatch(deleteUser(id));
 	}
-  };
+ };
 };
 const connectedUsers = connect(mapStateToProps, mapDispatchToProps)(Users);
 export default connectedUsers;

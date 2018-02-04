@@ -4,12 +4,13 @@ import Users from "./Users";
 import DisplayUser from "./DisplayUser";
 import { connect } from "react-redux";
 import AddNewUser from "./AddNewUser";
+import EditUser from "./EditUser";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.selectedUser ? <DisplayUser /> : this.props.addNewUser ? <AddNewUser /> : <Users />}
+        {this.props.editUser ? <EditUser /> : this.props.selectedUser ? <DisplayUser /> : this.props.addNewUser ? <AddNewUser /> : <Users />}
       </div>
     );
   }
@@ -18,7 +19,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     selectedUser: state.selectedUser,
-    addNewUser: state.addNewUser
+    addNewUser: state.addNewUser,
+    editUser: state.editUser
   };
 };
 

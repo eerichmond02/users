@@ -3,18 +3,21 @@ import {
   SELECTED_USER,
   DESELECT_USER,
   UPDATE_USERS,
-  NEW_USER_PAGE
+  NEW_USER_PAGE,
+  EDIT_USER_PAGE
 } from "./types";
 
 const initialState = {
   users: [],
   selectedUser: undefined,
-  addNewUser: false
+  addNewUser: false,
+  editUser: false
 };
 
 class User {
-  constructor(name, email, createdAt, id) {
-    this.name = name;
+  constructor(firstName, lastName, email, createdAt, id) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.createdAt = createdAt;
     this.id = id;
@@ -41,6 +44,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         addNewUser: !state.addNewUser
+      };
+      case EDIT_USER_PAGE:
+      return {
+        ...state,
+        editUser: !state.editUser
       };
     default:
       return state;
