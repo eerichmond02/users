@@ -9,7 +9,7 @@ class Users extends Component {
   }
   render() {
     return (
-      <div>
+      <div id='users'>
         <h1 className="App-title">Users</h1>
         <table>
           <tbody>
@@ -37,7 +37,7 @@ class Users extends Component {
             })}
           </tbody>
         </table>
-        <button onClick={() => this.props.newUserPage()}>Add New User</button>
+        <button id='newUser' onClick={() => this.props.newUserPage()}>Add New User</button>
       </div>
     );
   }

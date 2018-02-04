@@ -19,7 +19,8 @@ class AddNewUser extends Component {
 
   render() {
     return (
-      <form>
+      <form id='newUserForm'>
+        <h2>Add a New User</h2>
         <input
           name="firstName"
           onChange={this.handleChange}

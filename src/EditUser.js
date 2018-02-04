@@ -19,7 +19,8 @@ class EditUser extends Component {
 
   render() {
     return (
-      <form>
+      <form id='editForm'>
+        <h2>Edit User {this.props.selectedUser.id}</h2>
         <label>First Name</label>
         <input
           name="firstName"
@@ -38,20 +39,22 @@ class EditUser extends Component {
           onChange={this.handleChange}
           value={this.state.email}
         />
-        <button
-          onClick={e => {
-            e.preventDefault();
-            this.props.editUser(
-              this.state.firstName,
-              this.state.lastName,
-              this.state.email,
-              this.props.selectedUser.id
-            );
-          }}
-        >
-          Update
-        </button>
-        <button onClick={this.props.editUserPage}>Show</button>
+        <div>
+          <button id='updateButton'
+            onClick={e => {
+              e.preventDefault();
+              this.props.editUser(
+                this.state.firstName,
+                this.state.lastName,
+                this.state.email,
+                this.props.selectedUser.id
+              );
+            }}
+          >
+            Update
+          </button>
+          <button id='showButton' onClick={this.props.editUserPage}>Show</button>
+        </div>
         <button onClick={() => {this.props.editUserPage(); this.props.deselectUser()}}>Go back</button>
       </form>
     );

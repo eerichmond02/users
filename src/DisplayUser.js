@@ -4,8 +4,8 @@ import { deselectUser, editUserPage, deleteUser } from "./state/actions";
 
 const DisplayUser = props => {
   return (
-    <div>
-      <h1>User Id: {props.selectedUser.id}</h1>
+    <div id='displayUser'>
+      <h2>User Id: {props.selectedUser.id}</h2>
       <p>Full Name: {props.selectedUser.firstName + " " + props.selectedUser.lastName}</p>
       <p>Email: {props.selectedUser.email}</p>
       <p>Created At: {props.selectedUser.createdAt}</p>

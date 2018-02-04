@@ -26,4 +26,48 @@ table, th, td {
    padding: 5px;
 }
 
+#users {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+button {
+  margin: 3px;
+}
+
+#newUser {
+  margin-top: 15px;
+}
+
+#newUserForm, #editForm {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+label {
+  text-align: left;
+  width: 150px;
+  margin-top: 10px;
+}
+
+#updateButton, #showButton {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 15px;
+}
+
+#displayUser {
+  margin-top: 35px;
+}
